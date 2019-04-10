@@ -1,21 +1,21 @@
 module.exports = function() {
   /**
-   * available streams 
+   * available streams
    * the id value is considered unique (provided by socket.io)
    */
-  var streamList = [];
+  const streamList = [];
 
   /**
    * Stream object
    */
-  var Stream = function(id, name) {
+  const Stream = function (id, name) {
     this.name = name;
     this.id = id;
-  }
+  };
 
   return {
     addStream : function(id, name) {
-      var stream = new Stream(id, name);
+      const stream = new Stream(id, name);
       streamList.push(stream);
     },
 
@@ -29,7 +29,7 @@ module.exports = function() {
 
     // update function
     update : function(id, name) {
-      var stream = streamList.find(function(element, i, array) {
+      const stream = streamList.find(function (element, i, array) {
         return element.id == id;
       });
       stream.name = name;
